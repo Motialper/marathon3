@@ -6,6 +6,17 @@ import banner from '../assets/banner.png'
 
 const BgRemove = () =>
 {
+
+    const titel='תמונה חינם';
+    const subtitle="612x408  תצוגה מקדימה של תמונה";
+    const subsubtext="איכות טובה עד 0.25 מגה פיקסל"
+    const buttext = 'הורד';
+    const dtitle = 'pro';
+    const dsubtitle="1280x1920  תצוגה מקדימה של תמונה";
+
+    
+
+
     return(
         <div>
             <div className="Container">
@@ -20,7 +31,9 @@ const BgRemove = () =>
                 <div className='mainBudy'>
                     <div className='mainRight'>
                         <div className='middleRight'>
-                            <DownloasImage />
+                        <DownloasImage titel={titel} subtitle={subtitle} buttext={buttext} subsubtext={subsubtext}/>
+                        <DownloasImage titel={dtitle}  buttext={buttext} dsubtitle={dsubtitle} subsubtext={subsubtext} />
+
 
                                 
                         </div>  
