@@ -3,9 +3,12 @@ import DownloasImage from "./downloas-image";
 import close  from '../assets/close.png'
 import logo from '../assets/logo.png'
 import banner from '../assets/banner.png'
+import ImageDisplay from "./ImageDisplay";
+import {useState} from 'react'
 
 const BgRemove = () =>
 {
+
 
     const titel='תמונה חינם';
     const subtitle="612x408  תצוגה מקדימה של תמונה";
@@ -14,7 +17,18 @@ const BgRemove = () =>
     const dtitle = 'pro';
     const dsubtitle="1280x1920  תצוגה מקדימה של תמונה";
 
-    
+    const [tabName, settabName] = useState('no_bg')
+   
+    const ng_down = (e) => {
+    debugger;
+
+        if(e.target.className == 'no-pg'){
+            settabName('original')
+        } else{
+            settabName('no_bg')
+        }
+
+    }
 
 
     return(
@@ -31,8 +45,8 @@ const BgRemove = () =>
                 <div className='mainBudy'>
                     <div className='mainRight'>
                         <div className='middleRight'>
-                        <DownloasImage titel={titel} subtitle={subtitle} buttext={buttext} subsubtext={subsubtext}/>
-                        <DownloasImage titel={dtitle}  buttext={buttext} dsubtitle={dsubtitle} subsubtext={subsubtext} />
+                        <DownloasImage titel={titel} subtitle={subtitle} buttext={buttext} subsubtext={subsubtext} borderline={true} />
+                        <DownloasImage titel={dtitle}  buttext={ 'HD' + ' ' + buttext} dsubtitle={dsubtitle} subsubtext={subsubtext} imagePro={true}/>
 
 
                                 
@@ -40,9 +54,10 @@ const BgRemove = () =>
 
                     </div>
                     <div className='mainLeft'>
-                            <div className='no-pg'> הסרת רקע </div>
-                            <div className='original'> מקורי </div>
+                            <div className='no-pg' style={{borderBottom: (tabName != "no_bg" ? "3px solid #9C27B0": "")}} onClick={ng_down}> הסרת רקע </div>
+                            <div className='original' style={{borderBottom: (tabName == "no_bg" ? "3px solid #9C27B0": "")}}  onClick={ng_down} > מקורי </div>
                         <div className='middleLeft'>
+                            <ImageDisplay />
 
 
                         </div>
