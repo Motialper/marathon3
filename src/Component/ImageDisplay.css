@@ -1,0 +1,56 @@
+
+
+
+
+
+.textIm{
+    color: #00bcd491;
+    text-align: right;
+    padding-right: 25px;
+    padding-top: 10px;
+    font-size: 15px;
+    background-image: url('../assets/warning.png');
+    background-repeat: no-repeat;
+    background-position: 520px 15px;
+    
+}
+
+.color_{
+    border: 1px solid #ffffff75;
+    color: #ffffff91;
+    width: 89px;
+    border-radius: 25px;
+    position: relative;
+    top: -17px;
+    left: 19px;
+    text-align: right;
+    padding-right: 11px;
+    line-height: 26px;
+}
+
+.inputColor{
+    margin-left: 26px;
+   
+    float: left;
+    margin-top: -45px;
+    opacity: 0;
+}
+
+.color_choosh{
+    color: #ffffff91;
+    width: 28px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    text-align: right;
+    padding-right: 11px;
+    line-height: 26px;
+  
+    height: 26px;
+   border-radius: 13px 0 0 13px;
+}
+
+.imagePlace{
+    border: solid 1px red;
+    height: 294px;
+}
