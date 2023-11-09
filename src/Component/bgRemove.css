@@ -156,3 +156,9 @@ body{
     padding-left: 22px;
     background-position: 3px;
 }
+
+.chooshfile{
+    width: 0px;
+    opacity: 0;
+    float: left;
+}

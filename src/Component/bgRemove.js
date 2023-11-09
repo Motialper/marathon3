@@ -1,5 +1,6 @@
 import "./bgRemove.css"
 import DownloasImage from "./downloas-image";
+import Popup from './Popup';
 import close  from '../assets/close.png'
 import logo from '../assets/logo.png'
 import banner from '../assets/banner.png'
@@ -18,16 +19,25 @@ const BgRemove = () =>
     const dsubtitle="1280x1920  תצוגה מקדימה של תמונה";
 
     const [tabName, settabName] = useState('no_bg')
+    const [openPopup, setopenPopup] = useState(false)
+
+    const upluodImage = useRef()
+
+    const chooshFile = () => {
+        upluodImage.current.click()
+    }
    
     const ng_down = (e) => {
-    debugger;
-
         if(e.target.className == 'no-pg'){
             settabName('original')
         } else{
             settabName('no_bg')
         }
 
+    }
+
+    const Open_Popup = () => {
+        setopenPopup(true)
     }
 
 
@@ -38,7 +48,8 @@ const BgRemove = () =>
                     <img src={close} className="Xicon"/>
                     <div className="header-title"> העלאת תמונה כדי להסיר את הרקע  </div>
                     
-                    <button className="header-image" > העלאת תמונה</button>
+                    <button className="header-image" onClick={chooshFile}> העלאת תמונה</button>
+                    <input type="file" className="chooshfile" ref={upluodImage}/>
                     <div className="header-subtext">פורמטים נחתכים ,png, ipeg </div>
                 </div>
 
@@ -58,15 +69,15 @@ const BgRemove = () =>
                             <div className='original' style={{borderBottom: (tabName == "no_bg" ? "3px solid #9C27B0": "")}}  onClick={ng_down} > מקורי </div>
                         <div className='middleLeft'>
                             {tabName !== 'no_bg' ? 
-                            <ImageDisplay ImageOnly={false}/>
+                            <ImageDisplay image_only={false}/>
                             :
-                            <ImageDisplay ImageOnly={true}/>
+                            <ImageDisplay image_only={true}/>
                             }
-
+                         {openPopup && <Popup setopenPopup={setopenPopup}/>}
 
                         </div>
                             <div className='text-middel-footer'>.על ידי העלאת תמונה אני מסכים לתנאים ונגבלות</div>
-                            <button className='button-company'> תקנון חברה</button>
+                            <button className='button-company' onClick={Open_Popup }> תקנון חברה</button>
                         
                          </div>
 
