@@ -162,3 +162,91 @@ body{
     opacity: 0;
     float: left;
 }
+
+.down_image_popup{
+    left: 90px;
+    width: 450px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 15px;
+    position: relative;
+    top: -210px;
+}
+
+
+.top_img{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 222px;
+    background-color: white;
+    border-radius: 5px;
+    /* box-shadow: 1px 1px 10px #9c27b080; */
+}
+
+.img_down{
+    right: 8px;
+    position: absolute;
+    top: 7px;
+
+}
+.down_image_text_title{
+    font-size: 28px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: #4f4fb0;
+
+}
+
+.down_image_text{
+    color: #4f4fb0;
+
+}
+.not_robot{
+    position: relative;
+    right: 10px;
+}
+
+
+.input_{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 60px;
+}
+
+.buttons{
+    margin-top: 18px;
+    width: 430px;
+}
+.but_appeoval{
+    background-color: #2fa37c;
+    border-radius: 15px;
+    width: 170px;
+    padding: 10px;
+    color: white;
+    margin-left: 10px;
+    cursor: pointer;
+    background: linear-gradient(71deg,#9C27B0, #03A9F4);
+
+}
+
+.but_cancel{
+    border-radius: 15px;
+    width: 170px;
+    padding: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+
+}
+
+.close_img{
+    position: absolute;
+    top: 17px;
+    left: 20px;
+    width: 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    color: gray;
+}

@@ -26,6 +26,7 @@
     text-align: right;
     padding-right: 11px;
     line-height: 26px;
+    cursor: pointer;
 }
 
 .inputColor{
