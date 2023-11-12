@@ -26,6 +26,7 @@
     text-align: right;
     padding-right: 11px;
     line-height: 26px;
+    cursor: pointer;
 }
 
 .inputColor{
@@ -50,7 +51,15 @@
    border-radius: 13px 0 0 13px;
 }
 
-.imagePlace{
-    border: solid 1px red;
+.image_pace{
+    border:1px solid white;
     height: 294px;
+    position: relative;
+} 
+
+
+.image_only_disp{
+    top: 58px;
+    position: relative;
+   
 }

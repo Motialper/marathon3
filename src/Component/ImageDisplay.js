@@ -1,10 +1,20 @@
 import './ImageDisplay.css';
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 
 const ImageDisplay = (props) => {
 
     const [Color, setColor] = useState('red')
+    const [image_only_disp, setimage_only_disp] = useState('');
+
+    useEffect(() => {
+        if(props.image_only === true) {
+            setimage_only_disp('image_only_disp');
+        } else {
+            setimage_only_disp('');
+        }
+    },[props.image_only]);
+
     const inputElement = useRef();
 
     const focusInput = () => {
@@ -15,11 +25,12 @@ const ImageDisplay = (props) => {
         setColor(e.target.value)
     }
 
+    
     return (
         <div>
            
             <div className='imDisContainer'>
-            {props.ImageOnly == false ? 
+            {props.image_only == false ? 
                  <>
                 <div className='textIm'>
                     אל תשכח להוריד את הקבצים, הם ימחקו אוטומטית כשתצא מהדף
@@ -30,7 +41,7 @@ const ImageDisplay = (props) => {
                 <input type='color' ref={inputElement}  className='inputColor' onChange={ColorChange}/>
                 </>
                 : ''}
-                <div className='imagePlace'>
+                <div className={`image_pace ${image_only_disp}`}>
                     
                 </div>
             </div>
