@@ -1,4 +1,5 @@
-import "./bgRemove.css"
+import './bgRemove.css';
+
 import DownloasImage from "./downloas-image";
 import Popup from './Popup';
 import close from '../assets/close.png'
@@ -6,6 +7,7 @@ import logo from '../assets/logo.png'
 import banner from '../assets/banner.png'
 import DownloadImg from '../assets/DownloadImg.png';
 import not_robot from '../assets/not_robot.png'
+import axios from 'axios';
 
 import ImageDisplay from "./ImageDisplay";
 import { useState, useRef } from 'react'
@@ -23,6 +25,7 @@ const BgRemove = () => {
     const [tabName, settabName] = useState('no_bg')
     const [openPopup, setopenPopup] = useState(false)
     const [Open_poup_download, setOpen_poup_download] = useState(false)
+    const [ShowEror, setShowEror] = useState(false)
 
     const upluodImage = useRef()
 
@@ -47,6 +50,31 @@ const BgRemove = () => {
         setOpen_poup_download(true)
     }
 
+    const send_to_server = (e) => {
+        debugger;
+        let file = (e.target.files[0])
+        
+        if ( file.type == "image/png" ||  file.type == "image/ipeg"){
+            setShowEror(false)
+
+            let formData = new FormData();
+
+            formData.append('myFile', file);   //append the values with key, value pair
+
+            let headers = {     
+                'content-type': 'multipart/form-data' 
+            }
+
+
+        axios.post(`http://localhost:5000/uplode_img`, formData, headers )
+        .then(res => {
+            // console.log('mmm', res)
+         
+        })
+    } else {
+        setShowEror(true)
+    }
+    }
 
 
     return (
@@ -57,8 +85,10 @@ const BgRemove = () => {
                     <div className="header-title"> העלאת תמונה כדי להסיר את הרקע  </div>
 
                     <button className="header-image" onClick={chooshFile}> העלאת תמונה</button>
-                    <input type="file" className="chooshfile" ref={upluodImage} />
+                    <input type="file" className="chooshfile" ref={upluodImage} onChange={send_to_server}/>
                     <div className="header-subtext">פורמטים נחתכים ,png, ipeg </div>
+                
+                {ShowEror ?  <p className="error"> קובץ לא נתמך</p> : " "}
                 </div>
 
                 <div className='mainBudy'>
