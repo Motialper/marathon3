@@ -51,7 +51,6 @@ const BgRemove = () => {
     }
 
     const send_to_server = (e) => {
-        debugger;
         let file = (e.target.files[0])
         
         if ( file.type == "image/png" ||  file.type == "image/ipeg"){
@@ -59,14 +58,13 @@ const BgRemove = () => {
 
             let formData = new FormData();
 
-            formData.append('myFile', file);   //append the values with key, value pair
-
+            formData.append('myFile', file);  
             let headers = {     
                 'content-type': 'multipart/form-data' 
             }
 
 
-        axios.post(`http://localhost:5000/uplode_img`, formData, headers )
+        axios.post(`http://localhost:5000/upload_img`, formData, headers )
         .then(res => {
             // console.log('mmm', res)
          
@@ -86,9 +84,10 @@ const BgRemove = () => {
 
                     <button className="header-image" onClick={chooshFile}> העלאת תמונה</button>
                     <input type="file" className="chooshfile" ref={upluodImage} onChange={send_to_server}/>
-                    <div className="header-subtext">פורמטים נחתכים ,png, ipeg </div>
-                
-                {ShowEror ?  <p className="error"> קובץ לא נתמך</p> : " "}
+                    <div className='header_error'>
+                        <div className="header-subtext">פורמטים נחתכים ,png, ipeg </div>
+                            {ShowEror ?  <p className="error"> קובץ לא נתמך</p> : " "}
+                        </div>
                 </div>
 
                 <div className='mainBudy'>
