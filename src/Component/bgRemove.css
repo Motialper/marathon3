@@ -1,0 +1,264 @@
+
+@font-face {
+    font-family: "Aduma";
+    src:
+      url("../assets/fonts/Aduma\ Regular.ttf") 
+}
+      
+body{
+    font-family: 'Aduma';
+ 
+}
+
+.Container {
+    width: 800px;
+    height: 600px;
+    margin: 0 auto;
+    margin-top: 110px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 10px black;
+    background-color: #222A34;
+}
+
+
+
+.header-title{
+    font-size: 33px;
+    color: white;
+    text-align: right;
+    margin-right: 25px;
+    padding-top: 10px;
+}
+
+.header-image{
+    text-align: right;
+    float: left;
+    color: white;
+    width: 130px;
+    height: 30px;
+    border: 0;
+    cursor: pointer;
+    margin-top: -5px;
+    border-radius: 21px;
+    background-color: gray;
+    margin-left: 20px;
+    padding-right: 11px;
+    background-image: url('../assets/Upload.png');
+
+    background-repeat: no-repeat;
+    background-position: 6px 7px;
+}
+
+.header-subtext{
+
+    color: white;
+    float: left;
+    margin-left: 43px;
+}
+
+.Xicon{
+    position: absolute;
+    left: 24px;
+    top: 15px;
+    cursor: pointer;
+}
+.mainBudy{
+    clear: both;
+    margin-top: 40px;
+}
+
+.mainRight{
+    width: 29%;
+    float: right;
+    height: 445px;
+    margin-right: 10px;
+    border-radius: 10px;
+    background-color: #2F3A4B ;
+
+}
+
+.mainLeft{
+    width: 67%;
+    float: left;
+    height: 445px;
+    margin-left: 10px;
+    border-radius: 10px;
+    background-color: #2F3A4B ;
+
+}
+
+.middleLeft, .middleRight{
+
+    height: 355px;
+    margin-top: 44px;
+    background-color: #161B21;
+}
+
+.banner{
+    float: right;
+    margin: 22px;
+}
+
+.logo{
+   float: left;
+   margin: 18px;
+}
+
+.no-pg{
+    cursor: pointer;
+    font-size: 26px;
+    color: white;
+    float: right;
+    padding-right: 19px;
+    width: 100px;
+    padding-top: 4px;
+    background-image: url('../assets/Cleanup\ Edges.png');
+    background-repeat: no-repeat;
+    background-position: 90px;
+    padding-bottom: 5px;
+
+}
+
+.original{
+    cursor: pointer;
+    font-size: 26px;
+    color: white;
+    float: right;
+    width: 100px;
+    padding-top: 4px;
+    background-image: url('../assets/Image.png');
+    background-repeat: no-repeat;
+    background-position: 77px 16px;
+
+    padding-bottom: 5px;
+
+
+}
+
+.text-middel-footer{
+    color: white;
+    float: right;
+    margin: 15px;
+
+}
+
+.button-company{
+    height: 24px;
+    float: left;
+    margin: 13px;
+    background-color: gray;
+    border-radius: 10px;
+    width: 100px;
+    color: white;
+    cursor: pointer;
+    background-image: url('../assets/eula.png');
+    background-repeat: no-repeat;
+    padding-left: 22px;
+    background-position: 3px;
+}
+
+.chooshfile{
+    width: 0px;
+    opacity: 0;
+    float: left;
+}
+
+.down_image_popup{
+    left: 90px;
+    width: 450px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 15px;
+    position: relative;
+    top: -210px;
+}
+
+
+.top_img{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 222px;
+    background-color: white;
+    border-radius: 5px;
+    /* box-shadow: 1px 1px 10px #9c27b080; */
+}
+
+.img_down{
+    right: 8px;
+    position: absolute;
+    top: 7px;
+
+}
+.down_image_text_title{
+    font-size: 28px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: #4f4fb0;
+
+}
+
+.down_image_text{
+    color: #4f4fb0;
+
+}
+.not_robot{
+    position: relative;
+    right: 10px;
+}
+
+
+.input_{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 60px;
+}
+
+.buttons{
+    margin-top: 18px;
+    width: 430px;
+}
+.but_appeoval{
+    background-color: #2fa37c;
+    border-radius: 15px;
+    width: 170px;
+    padding: 10px;
+    color: white;
+    margin-left: 10px;
+    cursor: pointer;
+    background: linear-gradient(71deg,#9C27B0, #03A9F4);
+
+}
+
+.but_cancel{
+    border-radius: 15px;
+    width: 170px;
+    padding: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+
+}
+
+.close_img{
+    position: absolute;
+    top: 17px;
+    left: 20px;
+    width: 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    color: gray;
+}
+
+.error{
+    color: red;
+   position: relative;
+   right: 100px;
+}
+
+.header_error{
+height: 0px;
+   left: 300px;
+   display: flex;
+}
