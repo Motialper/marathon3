@@ -24,7 +24,6 @@ const ImageDisplay = (props) => {
     const ColorChange = (e) => {
         setColor(e.target.value)
     }
-
     
     return (
         <div>
@@ -42,7 +41,9 @@ const ImageDisplay = (props) => {
                 </>
                 : ''}
                 <div className={`image_pace ${image_only_disp}`}>
-                    
+                    {props.ShowImg && props.ShowImg !== 'no_bg:false'? 
+                    <img className='img_display' src={'http://localhost:5000/' +props.ShowImg}/>
+                    : ''}
                 </div>
             </div>
 
