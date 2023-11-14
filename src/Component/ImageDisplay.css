@@ -55,11 +55,21 @@
     border:1px solid white;
     height: 294px;
     position: relative;
+    overflow: auto;
+
 } 
 
 
 .image_only_disp{
     top: 58px;
     position: relative;
+    overflow: auto;
    
+}
+
+.img_display{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
 }

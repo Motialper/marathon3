@@ -26,6 +26,8 @@ const BgRemove = () => {
     const [openPopup, setopenPopup] = useState(false)
     const [Open_poup_download, setOpen_poup_download] = useState(false)
     const [ShowEror, setShowEror] = useState(false)
+    const [ShowImg, setShowImg] = useState(false)
+
 
     const upluodImage = useRef()
 
@@ -53,7 +55,7 @@ const BgRemove = () => {
     const send_to_server = (e) => {
         let file = (e.target.files[0])
         
-        if ( file.type == "image/png" ||  file.type == "image/ipeg"){
+        if ( file.type == "image/png" ||  file.type == "image/jpeg"){
             setShowEror(false)
 
             let formData = new FormData();
@@ -66,7 +68,7 @@ const BgRemove = () => {
 
         axios.post(`http://localhost:5000/upload_img`, formData, headers )
         .then(res => {
-            // console.log('mmm', res)
+            setShowImg(res.data)
          
         })
     } else {
@@ -110,9 +112,9 @@ const BgRemove = () => {
                         <div className='original' style={{ borderBottom: (tabName == "no_bg" ? "3px solid #9C27B0" : "") }} onClick={ng_down} > מקורי </div>
                         <div className='middleLeft'>
                             {tabName !== 'no_bg' ?
-                                <ImageDisplay image_only={false} />
+                                <ImageDisplay className='img_display' image_only={false} ShowImg={'no_bg:'+ ShowImg}/>
                                 :
-                                <ImageDisplay image_only={true} />
+                                <ImageDisplay image_only={true} ShowImg={ShowImg} />
                             }
                             {openPopup && <Popup setopenPopup={setopenPopup} />}
                             
