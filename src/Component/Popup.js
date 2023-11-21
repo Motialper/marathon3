@@ -10,7 +10,6 @@ const Popup = (props) => {
   return (
     <div>
      
-        
           <div className='popup_overlay' ></div>
           <div className='popup'>
             <img className='close' src={close} onClick={closePopup}/>

@@ -65,7 +65,6 @@ const BgRemove = () => {
                 'content-type': 'multipart/form-data' 
             }
 
-
         axios.post(`http://localhost:5000/upload_img`, formData, headers )
         .then(res => {
             setShowImg(res.data)

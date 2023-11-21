@@ -16,6 +16,7 @@
 }
 
 .color_{
+
     border: 1px solid #ffffff75;
     color: #ffffff91;
     width: 89px;
@@ -29,7 +30,7 @@
     cursor: pointer;
 }
 
-.inputColor{
+.input_color{
     margin-left: 26px;
    
     float: left;
