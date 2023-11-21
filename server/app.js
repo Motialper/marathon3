@@ -73,7 +73,7 @@ app.post('/upload_img', function (req, res) {
 
         
       })
-      app.post('/upload_img_with_color', function (req, res) {
+      app.post('/upload_image_with_color', function (req, res) {
   
         console.log(req)
       
@@ -81,9 +81,6 @@ app.post('/upload_img', function (req, res) {
         let fileName=req.body.UploadedFileName;
         let color=req.body.color;
 
-
-      
-      
             const inputPath = `${__dirname}/upload_img_no_bg/no_bg:${fileName}`;
             const formData = new FormData();
             formData.append('size', 'auto');
@@ -104,7 +101,7 @@ app.post('/upload_img', function (req, res) {
               if(response.status != 200) return console.error('Error:', response.status, response.statusText);
             
               (async () => {
-              fs.writeFileSync(`${__dirname}/upload_img_with_color/color:${fileName}`, response.data);
+              fs.writeFileSync(`${__dirname}/upload_img_color/color:${fileName}`, response.data);
             }) ();
               res.send('color:'+fileName);
             })
