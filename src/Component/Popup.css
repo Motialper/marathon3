@@ -6,8 +6,8 @@
     padding: 40px;
     position: relative;
     margin-top: -160px;
+    z-index: 999;
 }
-
 
 .popup_overlay{
     width: 100%;

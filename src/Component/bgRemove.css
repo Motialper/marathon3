@@ -84,7 +84,6 @@ body{
     margin-left: 10px;
     border-radius: 10px;
     background-color: #2F3A4B ;
-
 }
 
 .middleLeft, .middleRight{
@@ -249,4 +248,16 @@ body{
     border-radius: 15px;
     cursor: pointer;
     color: gray;
+}
+
+.error{
+    color: red;
+   position: relative;
+   right: 100px;
+}
+
+.header_error{
+height: 0px;
+   left: 300px;
+   display: flex;
 }

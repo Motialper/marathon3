@@ -16,6 +16,7 @@
 }
 
 .color_{
+
     border: 1px solid #ffffff75;
     color: #ffffff91;
     width: 89px;
@@ -29,7 +30,7 @@
     cursor: pointer;
 }
 
-.inputColor{
+.input_color{
     margin-left: 26px;
    
     float: left;
@@ -55,11 +56,21 @@
     border:1px solid white;
     height: 294px;
     position: relative;
+    overflow: auto;
+
 } 
 
 
 .image_only_disp{
     top: 58px;
     position: relative;
+    overflow: auto;
    
+}
+
+.img_display{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
 }

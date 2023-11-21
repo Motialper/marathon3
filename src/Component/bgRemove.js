@@ -1,4 +1,5 @@
-import "./bgRemove.css"
+import './bgRemove.css';
+
 import DownloasImage from "./downloas-image";
 import Popup from './Popup';
 import close from '../assets/close.png'
@@ -6,6 +7,7 @@ import logo from '../assets/logo.png'
 import banner from '../assets/banner.png'
 import DownloadImg from '../assets/DownloadImg.png';
 import not_robot from '../assets/not_robot.png'
+import axios from 'axios';
 
 import ImageDisplay from "./ImageDisplay";
 import { useState, useRef } from 'react'
@@ -23,6 +25,9 @@ const BgRemove = () => {
     const [tabName, settabName] = useState('no_bg')
     const [openPopup, setopenPopup] = useState(false)
     const [Open_poup_download, setOpen_poup_download] = useState(false)
+    const [ShowEror, setShowEror] = useState(false)
+    const [ShowImg, setShowImg] = useState(false)
+
 
     const upluodImage = useRef()
 
@@ -47,6 +52,28 @@ const BgRemove = () => {
         setOpen_poup_download(true)
     }
 
+    const send_to_server = (e) => {
+        let file = (e.target.files[0])
+        
+        if ( file.type == "image/png" ||  file.type == "image/jpeg"){
+            setShowEror(false)
+
+            let formData = new FormData();
+
+            formData.append('myFile', file);  
+            let headers = {     
+                'content-type': 'multipart/form-data' 
+            }
+
+        axios.post(`http://localhost:5000/upload_img`, formData, headers )
+        .then(res => {
+            setShowImg(res.data)
+         
+        })
+    } else {
+        setShowEror(true)
+    }
+    }
 
 
     return (
@@ -57,8 +84,11 @@ const BgRemove = () => {
                     <div className="header-title"> העלאת תמונה כדי להסיר את הרקע  </div>
 
                     <button className="header-image" onClick={chooshFile}> העלאת תמונה</button>
-                    <input type="file" className="chooshfile" ref={upluodImage} />
-                    <div className="header-subtext">פורמטים נחתכים ,png, ipeg </div>
+                    <input type="file" className="chooshfile" ref={upluodImage} onChange={send_to_server}/>
+                    <div className='header_error'>
+                        <div className="header-subtext">פורמטים נחתכים ,png, ipeg </div>
+                            {ShowEror ?  <p className="error"> קובץ לא נתמך</p> : " "}
+                        </div>
                 </div>
 
                 <div className='mainBudy'>
@@ -81,9 +111,9 @@ const BgRemove = () => {
                         <div className='original' style={{ borderBottom: (tabName == "no_bg" ? "3px solid #9C27B0" : "") }} onClick={ng_down} > מקורי </div>
                         <div className='middleLeft'>
                             {tabName !== 'no_bg' ?
-                                <ImageDisplay image_only={false} />
+                                <ImageDisplay className='img_display' image_only={false} ShowImg={'no_bg:'+ ShowImg}/>
                                 :
-                                <ImageDisplay image_only={true} />
+                                <ImageDisplay image_only={true} ShowImg={ShowImg} />
                             }
                             {openPopup && <Popup setopenPopup={setopenPopup} />}
                             

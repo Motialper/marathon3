@@ -1,12 +1,21 @@
+
 import './ImageDisplay.css';
+import axios from 'axios';
+
 import { useRef, useState, useEffect } from "react";
 
 
 const ImageDisplay = (props) => {
 
-    const [Color, setColor] = useState('red')
+    const [color, setcolor] = useState('red')
     const [image_only_disp, setimage_only_disp] = useState('');
+    const [upload_img_name, setupload_img_name] = useState(props.ShowImg);
 
+
+    useEffect(() => {
+        setupload_img_name(props.ShowImg)
+    },[props.ShowImg])
+    
     useEffect(() => {
         if(props.image_only === true) {
             setimage_only_disp('image_only_disp');
@@ -21,11 +30,58 @@ const ImageDisplay = (props) => {
         inputElement.current.click();
     }
 
-    const ColorChange = (e) => {
-        setColor(e.target.value)
+    const color_change = (e) => {
+        setcolor(e.target.value)
     }
+    function color_choose_func(e){
+        console.log('Chosen color:', color);
 
-    
+        if(upload_img_name && upload_img_name!="no_bg_false") {
+            console.log(e.target.value);
+
+            let formData = new FormData();
+
+            formData.append("myFile", upload_img_name);
+            formData.append("color", color);
+
+            axios.post('http://localhost:5000/upload_image_with_color', formData)
+                .then(res => {
+                    setupload_img_name(res.data);
+                    props.color_func();
+                })
+        } else {
+            console.log("no_file_uploaded");
+        }
+
+
+    } 
+
+    // const color_choose_func = (e) => {
+    //     console.log('Chosen color:', color);
+
+    //     if(upload_img_name && upload_img_name != "no_bg:false") {
+
+    //        debugger;
+    //         console.log(e.target.value);
+
+    //         let formData = new FormData();
+    //         console.log( 'mama',formData)
+
+    //         formData.append("UploadedFileName", upload_img_name);
+    //         formData.append("color", color);
+
+    //         axios.post('http://localhost:5000/upload_image_with_color', formData)
+    //             .then(res => {
+    //                 setupload_img_name(res.data);
+    //                 props.color_func();
+    //             })
+    //     } else {
+    //         console.log("no_file_uploaded");
+    //     }
+
+
+    // } 
+
     return (
         <div>
            
@@ -36,13 +92,16 @@ const ImageDisplay = (props) => {
                     אל תשכח להוריד את הקבצים, הם ימחקו אוטומטית כשתצא מהדף
                 </div>
                 <div className='color_' onClick={focusInput} >צבע רקע
-                    <span className='color_choosh' style={{backgroundColor : Color}}></span>
+                    <span className='color_choosh' style={{backgroundColor : color }}></span>
                 </div>
-                <input type='color' ref={inputElement}  className='inputColor' onChange={ColorChange}/>
+                <input type="color" ref={inputElement} className="input_color"    onBlur = {color_choose_func} onChange={color_change} 
+              /> 
                 </>
                 : ''}
                 <div className={`image_pace ${image_only_disp}`}>
-                    
+                    {upload_img_name && upload_img_name !== 'no_bg:false' && upload_img_name !== 'color:no_bg:false'? 
+                    <img className='img_display' src={'http://localhost:5000/'+ upload_img_name}/>
+                    : ''}
                 </div>
             </div>
 
