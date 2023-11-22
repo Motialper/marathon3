@@ -261,3 +261,11 @@ height: 0px;
    left: 300px;
    display: flex;
 }
+
+.displyMsg{
+    position: absolute;
+    left: 75px;
+    right: 74px;
+    top: 115px;
+    color: red;
+}

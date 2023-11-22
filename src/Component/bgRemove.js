@@ -27,6 +27,11 @@ const BgRemove = () => {
     const [Open_poup_download, setOpen_poup_download] = useState(false)
     const [ShowEror, setShowEror] = useState(false)
     const [ShowImg, setShowImg] = useState(false)
+    const [show_loader, setshow_loader] = useState(false);
+    const [displyMsg, setdisplyMsg] = useState(false);
+    const [checkboxchecked, setcheckboxchecked] = useState(false);
+  
+
 
 
     const upluodImage = useRef()
@@ -43,6 +48,26 @@ const BgRemove = () => {
         }
 
     }
+    const download_img = () => {
+        
+        if(checkboxchecked){
+
+
+        fetch("http://localhost:5000/"+ ShowImg)
+        .then(response => {
+            response.blob().then(blob => {
+                let url = window.URL.createObjectURL(blob);
+                let a = document.createElement('a');
+                a.href = url;
+                a.download = ShowImg;
+                a.click();
+            });
+      });
+       } else {
+        setdisplyMsg(true)
+       }
+    } 
+    
 
     const Open_Popup = () => {
         setopenPopup(true)
@@ -56,6 +81,7 @@ const BgRemove = () => {
         let file = (e.target.files[0])
         
         if ( file.type == "image/png" ||  file.type == "image/jpeg"){
+            setshow_loader(true)
             setShowEror(false)
 
             let formData = new FormData();
@@ -68,12 +94,23 @@ const BgRemove = () => {
         axios.post(`http://localhost:5000/upload_img`, formData, headers )
         .then(res => {
             setShowImg(res.data)
+            setshow_loader(false)
          
         })
     } else {
         setShowEror(true)
     }
     }
+    
+    const updateCheckbox = (e) => {
+        
+       if(e.target.checked){
+        setcheckboxchecked(true)
+       } else{
+        setcheckboxchecked(false)
+       }
+
+     }
 
 
     return (
@@ -111,7 +148,7 @@ const BgRemove = () => {
                         <div className='original' style={{ borderBottom: (tabName == "no_bg" ? "3px solid #9C27B0" : "") }} onClick={ng_down} > מקורי </div>
                         <div className='middleLeft'>
                             {tabName !== 'no_bg' ?
-                                <ImageDisplay className='img_display' image_only={false} ShowImg={'no_bg:'+ ShowImg}/>
+                                <ImageDisplay show_loader={show_loader} className='img_display' image_only={false} ShowImg={'no_bg:'+ ShowImg}/>
                                 :
                                 <ImageDisplay image_only={true} ShowImg={ShowImg} />
                             }
@@ -133,11 +170,13 @@ const BgRemove = () => {
                                 <div className="input_" >
                                 <img src={not_robot}  className='not_robot'/>
 
-                                    <input type='checkbox' /> <span> אני לא רובוט </span>
+                                    <input type='checkbox' onChange={updateCheckbox} /> <span> אני לא רובוט </span>
+                                    {displyMsg ? <div className='displyMsg'> נא לסמן אני לא רובוט</div> : "" }
+
 
                                 </div>
                                 <div className="buttons">
-                                    <button className="but_appeoval">אישור</button>
+                                    <button className="but_appeoval" onClick={download_img}>אישור</button>
                                     <button className="but_cancel" onClick={()=>setOpen_poup_download(false)}>ביטול</button>
                                 </div>
                             </div>
