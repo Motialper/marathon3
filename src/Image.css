@@ -1,0 +1,88 @@
+.image_disp_cont_text{
+    color: #00bcd491;
+    text-align: right;
+    width: 100%;
+    float: right;
+    margin-top: -19px;
+    padding-right: 25px;
+    font-size: 13px;
+    background-image: url('./assets/warning.png');
+    background-repeat: no-repeat;
+    background-position: 550px 2px
+}
+
+.color_btn{
+    border: 1px solid #ffffff75;
+    color: #ffffff91;
+    width: 89px;
+    border-radius: 25px;
+    position: relative;
+    top: 17px;
+    left: 19px;
+    text-align: right;
+    padding-right: 11px;
+    line-height: 26px;
+}
+
+
+.input_color{
+    position: relative;
+    top: -13px;
+    left: -227px;
+    opacity: 0;
+}
+
+.color_choose{
+    color: #ffffff91;
+    width: 28px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    text-align: right;
+    padding-right: 11px;
+    line-height: 26px;
+  
+    height: 26px;
+    border-top-left-radius: 13px;
+    border-bottom-left-radius: 13px;
+}
+
+.image_pace{
+    border:1px solid white;
+    height: 294px;
+    position: relative;
+    overflow: auto;
+} 
+
+
+.image_only_disp{
+    top: 25px;
+    position: relative;
+    overflow: auto;
+    width: 100%;
+}
+
+
+.uploaded_img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.loader{
+    width: 50%;
+    border: 1px solid #ffffff5c;
+    height: 20px;
+    margin: 0 auto;
+    top: -166px;
+    position: relative;
+}
+
+
+.loader_in{
+    width: 39%;
+    float: left;
+    background: linear-gradient(249deg,#2196F3,#673AB7);
+    color: white;
+}

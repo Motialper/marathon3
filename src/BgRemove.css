@@ -1,0 +1,284 @@
+@font-face {
+    font-family: "Aduma";
+    src: url("./assets/fonts/Aduma\ Regular.ttf") ;
+}
+
+body{
+    font-family: 'Aduma';
+}
+
+.bg_div_cont{
+    width: 800px;
+    height: 600px;
+    margin: 0 auto;
+    margin-top: 110px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 10px black;
+    background-color: #222A34;
+}
+
+.bg_div_header_title{
+    color: white;
+    font-size: 30px;
+    text-align: right;
+    padding-right: 25px;
+    padding-top: 10px;
+}
+
+.bg_div_header_button{
+    background-color: #475366;
+    border: 0;
+    color: white;
+    height: 26px;
+    border-radius: 25px;
+    float: left;
+    margin-left: 20px;
+    background-image: url('./assets/Upload.png');
+    width: 120px;
+    background-repeat: no-repeat;
+    background-position: 5px 6px;
+    cursor: pointer;
+}
+
+.bg_div_header_subtext{
+    color: white;
+    text-align: left;
+    padding-left: 160px;
+    width: 318px;
+}
+
+.bg_div_header{
+    position: relative;
+}
+
+.close_img{
+    position: absolute;
+    left: 16px;
+    top: 16px;
+
+
+}
+
+.main_left{
+    width: 68%;
+    float: left;
+    height: 445px;
+    margin-left: 5px;
+    border-radius: 10px;
+    background-color: #2F3A4B ;
+}
+
+.main_right{
+    width: 29%;
+    float: right;
+    height: 445px;
+    margin-right: 5px;
+    border-radius: 10px;
+    background-color: #2F3A4B ;
+}
+
+.main_cont{
+    clear: both;
+    margin-top: 14px;
+}
+
+.middle_div_left, .middle_div_right{
+    height: 355px;
+    margin-top: 44px;
+    background-color: #161B21;
+}
+
+.logo{
+    float: left;
+    margin: 22px;
+}
+
+.banner{
+    float: right;
+    margin: 18px;
+}
+
+.tab_button_no_bg, .tab_button_original{
+    color: white;
+    width: 79px;
+    float: right;
+    position: relative;
+    top: -25px;
+    top: -30px;
+    background-repeat: no-repeat;
+}
+
+.tab_button_no_bg{
+    background-image: url('./assets/Cleanup\ Edges.png');
+    background-position: 62px 4px;
+ 
+    padding-bottom: 8px;
+    cursor: pointer;
+}
+
+.tab_button_original{
+    background-image: url('./assets/Image.png');
+    background-position: 55px 4px;
+    padding-bottom: 8px;
+    cursor: pointer;
+}
+
+
+.main_left_footer_text{
+    color: #ffffffb0;
+    font-size: 14px;
+    text-align: right;
+    direction: rtl;
+    margin: 14px;
+}
+
+.main_left_footer_btn{
+    float: left;
+    margin-top: -32px;
+    margin-left: 20px;
+    background-color: #475366;
+    border: 0;
+    color: white;
+    height: 26px;
+    border-radius: 25px;
+    width: 102px;
+    background-image: url('./assets/eula.png');
+    background-repeat: no-repeat;
+    background-position: 9px 7px;
+    padding-left: 20px;
+}
+
+.file_input{
+    display:none;
+}
+
+.takanon_popup{
+    width: 500px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 25px;
+    padding: 40px;
+    position: relative;
+    top: -399px;
+    margin: 0 auto;
+}
+
+.takanon_popup_overlay{
+    width: 100%;
+    height: 100%;
+    background-color: #000000a3;
+    position: fixed;
+    top: 0;
+}
+
+.close_popup_img{
+    position: absolute;
+    top: 17px;
+    left: 20px;
+    cursor: pointer;
+}
+
+
+.download_popup{
+    background-color: white;
+    border: 1px solid black;
+    width: 500px;
+    position: relative;
+    margin: 0 auto;
+    top: -376px;
+    height: 207px;
+}
+
+.top_img{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    /* border: 1px solid black; */
+    top: -25px;
+    left: 222px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px #9c27b080;
+}
+
+.download_popup_title{
+    position: absolute;
+    top: 34px;
+    text-align: center;
+    width: 100%;
+    font-size: 40px;
+    color:#1d2e8d;
+}
+
+
+.download_popup_subtitle{
+    position: absolute;
+    top: 85px;
+    text-align: center;
+    width: 100%;
+    font-size: 20px;
+    direction: rtl;
+    color:#1d2e8d;
+}
+
+.not_robot_cont {
+    position: absolute;
+    top: 126px;
+    right: 107px;
+    color:#1d2e8d;
+}
+
+.download_popup_cencel{
+    position: absolute;
+    top: 153px;
+    right: 67px;
+    width: 161px;
+    height: 39px;
+    border: 1px solid #00000063;
+    border-radius: 25px;
+    background-color: transparent;
+    color: black;
+}
+
+.download_popup_approve{
+    position: absolute;
+    top: 153px;
+    right: 246px;
+    width: 161px;
+    height: 39px;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    background: linear-gradient(71deg,#9C27B0, #03A9F4);
+}
+
+.DownloadsFolder{
+    position: absolute;
+    top: 8px;
+    right: 7px;
+}
+
+.close_img_popup{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.not_robot{
+    position: relative;
+    left: -8px;
+}
+
+.error{
+    color: red;
+    position: absolute;
+    left: 200px;
+    top: 63px;
+}
+
+.displyMsg{
+    position: absolute;
+    left: -105px;
+    top: 0px;
+    color: red;
+}
